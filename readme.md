@@ -9,11 +9,11 @@ In virtual box
  - Tab "Shared folders"
  - Add "Permanent folder"
 
-Folder path: C:\sci-ospt\kali-share
-Folder name: kali-share
-Read-only: false
-Mount automatically: true
-Mount point: /kali-share
+Folder path: C:\sci-ospt\kali-share  
+Folder name: kali-share  
+Read-only: false  
+Mount automatically: true  
+Mount point: /kali-share  
 Permanent configuration: true
 
 ## flameshot (screenshot)
