@@ -28,7 +28,7 @@ Permanent configuration: true
  - Go to the "General" tab
  - Set "Save Path" to `/kali-share/screenshots`
  - Check "Use fixed path for screenshots to save
- - Prerred save file extension `jpeg`
+ - Preferred save file extension `jpeg`
 
 
 ### Keyboard shortcuts
