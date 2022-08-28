@@ -136,7 +136,7 @@ Commands:
     
 ### Auth scan
 
-   nmap -v --script auth <ip>
+    nmap -v --script auth <ip>
 
 ## Ports
 ### FTP - 21
