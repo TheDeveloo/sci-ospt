@@ -19,7 +19,7 @@ Permanent configuration: true
 ## flameshot (screenshot)
 ### Install
 
-    apt get flameshot
+    apt install flameshot
 ### Configuration
 
  - Open flameshot from the menu
