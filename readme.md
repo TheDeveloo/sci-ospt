@@ -189,8 +189,8 @@ Go to `https://<ip>:10000/`
 
 Open metasploitable framework
 ## Getting started
-https://www.section.io/engineering-education/getting-started-with-metasploit-framework/
-https://www.offensive-security.com/metasploit-unleashed/using-databases/
+https://www.section.io/engineering-education/getting-started-with-metasploit-framework/  
+https://www.offensive-security.com/metasploit-unleashed/using-databases/  
 https://docs.rapid7.com/metasploit/exporting-and-importing-data/
 ## Start
 
