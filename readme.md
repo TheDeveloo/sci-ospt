@@ -39,20 +39,20 @@ In kali
  - Open the "Keyboard" application
  - Select the "Application Shortcuts" tab
 
-Shortcut "Print": `flameshot gui -s`
+Shortcut "Print": `flameshot gui -s`  
 Shortcut "Shift+Print": `flameshot gui`
 
 
 ## Dradis CE
-Allows to store information.
+Allows to store information.  
 Unfortunately, there's no way to export nodes but a copy paste do the job
 
 ### Install
 **DO NOT USE** kali documentation: https://www.kali.org/tools/dradis/
 
-Use the official installation documentation instead: 
-https://dradisframework.com/ce/documentation/ruby.html (I'm using ruby 3.1.2)
-https://dradisframework.com/ce/documentation/install_kali.html
+Use the official installation documentation instead:  
+https://dradisframework.com/ce/documentation/ruby.html (I'm using ruby 3.1.2)  
+https://dradisframework.com/ce/documentation/install_kali.html  
 https://dradisframework.com/ce/documentation/install_git.html
 
 ### Getting started
