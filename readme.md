@@ -1,5 +1,3 @@
-
-
 # Kali setup
 ### Share with host machine
 In virtual box
@@ -105,6 +103,11 @@ https://dradisframework.com/ce/documentation/reset.html
 
 
 # Information gathering
+## Frameworks
+
+  - https://attack.mitre.org/
+  - https://owasp.org/
+
 ## Google Hacks / dorks
   - camera linksys inurl:main.cgi
   - intitle:"toshiba network camera - User login"
@@ -119,6 +122,10 @@ https://dradisframework.com/ce/documentation/reset.html
   - https://www.mend.io/vulnerability-database/ - Vulns DB
   - https://cve.mitre.org/data/refs/refmap/source-OSVDB.html - OSVDB to CVE
   - https://www.shodan.io/ - Connected devices
+
+## Reporting
+
+https://pentestreports.com/
 
 ## Scan
 > Jackpot if these ports are open: 21, 80, 139, 445
@@ -248,11 +255,18 @@ https://www.vulnhub.com/
   - Metasploitable: 1
     - Difficulty: Easy
     - Type: Exploit
+    - https://www.vulnhub.com/entry/metasploitable-1,28/
   - Metasploitable: 2
     - Difficulty: Easy
     - Type: Exploit
+    - https://www.vulnhub.com/entry/metasploitable-2,29/
   - Empire: Breakout
+    - Difficulty: Medium/hard?
     - Type: Escape room
+    - https://www.vulnhub.com/entry/empire-breakout,751/
+  - MR-ROBOT: 1
+    - Difficulty: ?
+    - https://www.vulnhub.com/entry/mr-robot-1,151/
 
 # Attacks
 ## Xmas attack
@@ -270,3 +284,7 @@ For UDP use -sU
 # Lexical
 ## Samba
 Search also: smb
+
+# Learning
+
+https://github.com/phr85/swiss-cyber-defence/tree/main/Courses/Offensive%20Security%20-%20Penetrations%20Testing%20Bootcamp
