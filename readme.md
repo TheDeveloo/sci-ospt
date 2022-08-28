@@ -245,6 +245,15 @@ Restart metasploit-framework
 ## Machines
 https://www.vulnhub.com/
 
+  - Metasploitable: 1
+    - Difficulty: Easy
+    - Type: Exploit
+  - Metasploitable: 2
+    - Difficulty: Easy
+    - Type: Exploit
+  - Empire: Breakout
+    - Type: Escape room
+
 # Attacks
 ## Xmas attack
 
