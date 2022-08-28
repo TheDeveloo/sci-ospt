@@ -105,13 +105,38 @@ https://dradisframework.com/ce/documentation/reset.html
 
 
 # Information gathering
+## Google Hacks / dorks
+  - camera linksys inurl:main.cgi
+  - intitle:"toshiba network camera - User login"
+  - ext:php
+  - "SquirrelMail vesion 1.4" inurl:src ext:php
+  - intitle:"Welcome to Windows Small Business Server 2003"
+  - ext:pwd inurl:(service|authors|administrators|users) "# - Frontpage"
+  - intitle:"index of /" password.txt
+
+## Knowledge databases
+  - https://www.exploit-db.com/ - Exploit DB
+  - https://www.mend.io/vulnerability-database/ - Vulns DB
+  - https://cve.mitre.org/data/refs/refmap/source-OSVDB.html - OSVDB to CVE
+  - https://www.shodan.io/ - Connected devices
+
 ## Scan
 > Jackpot if these ports are open: 21, 80, 139, 445
 
-Command: nmap
+Commands:
+  - nmap
+  - hping3 - nmap with traceroute, DDoS with `--flood`
 ### Export
 
     nmap -sV -oX - <ip> >> /kali-share/nmap-<ip>.xml
+    
+### Vulnerability scan
+
+    nmap -v --script vuln <ip>
+    
+### Auth scan
+
+   nmap -v --script auth <ip>
 
 ## Ports
 ### FTP - 21
@@ -119,6 +144,23 @@ Command: nmap
     nc <ip> 21
 
 ### HTTP - 80
+
+Commands:
+  - nikto
+  - dirb
+
+##### nikto
+Gives vulnerabilities
+	
+    nikto -h http://<ip>:<port>
+
+##### dirb
+Scan available pages
+
+    dirb http://<ip> <opt:wordlist>
+	
+wordlist: /usr/share/dirb/wordlist/vulns/...
+
 #### Export
 
     nikto -h http://<ip>:<port> -o '/kali-share/nikto-<ip>-<port>.xml' -Format xml
@@ -130,13 +172,18 @@ Check if you find the following
  - system requirements
  - software (i.e. twiki)
 
+### MiniServ (Webmin) - 10000, 20000
+Go to `https://<ip>:10000/`
+
 ### NETBIOS-SSN / SMB - 139, 445
 
     enum4linux -a <ip> >> /kali-share/enum4linux-<ip>.txt
 
-### MiniServ (Webmin) - 10000, 20000
-Go to `https://<ip>:10000/`
-
+### SNMP (Simple Noetwork Management Protocol) - UDP 161, UDP 162
+	
+    onesixtyone -c /usr/share/doc/onesixtyone/dict.txt <ip>
+    snmpwalk -c public <ip> -v1
+    snmpset
 
 # Metasploit framework
 
@@ -197,6 +244,19 @@ Restart metasploit-framework
 # Training
 ## Machines
 https://www.vulnhub.com/
+
+# Attacks
+## Xmas attack
+
+    sudo nmap -sX <ip> -p<port>
+    
+For UDP use -sU
+
+## Null attack
+
+    sudo nmap -sN <ip> -p<port>
+    
+For UDP use -sU
 
 # Lexical
 ## Samba
