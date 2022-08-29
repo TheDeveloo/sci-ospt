@@ -14,6 +14,16 @@ Mount automatically: true
 Mount point: /kali-share  
 Permanent configuration: true
 
+## nvm (Node Version Manager)
+
+https://github.com/nvm-sh/nvm#install--update-script
+
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+    
+    nvm install 18
+
 ## FoxyProxy
 Firefox plugin
 // TODO
@@ -43,6 +53,15 @@ In kali
 
 Shortcut "Print": `flameshot gui -s`  
 Shortcut "Shift+Print": `flameshot gui`
+
+## Docker
+
+### Install
+https://www.kali.org/docs/containers/installing-docker-on-kali/
+
+To install Docker on Kali you need to remember that there is already a package named “docker”, therefore Docker has to be installed under a different name. If you install docker you will not end up with the container version. The version we will be installing is named docker.io. All commands are the same however, so running docker on the command line will be the appropriate command.
+
+
 
 
 ## Dradis CE
@@ -295,11 +314,19 @@ https://www.vulnhub.com/
     - Difficulty: ?
     - https://www.vulnhub.com/entry/mr-robot-1,151/
     
+## Docker
+
+  - OWASP - Juice Shop
+    - Type: Docker web application (also available with sources)
+    - https://hub.docker.com/r/bkimminich/juice-shop
+    - Install: https://github.com/juice-shop/juice-shop#docker-container
+
 ## Software
 
   - OWASP - Juice Shop
-    - Type: Web application
+    - Type: Web application (also available with docker)
     - https://owasp.org/www-project-juice-shop/
+    - Install: https://github.com/juice-shop/juice-shop#from-sources
 
 # Attacks
 ## Xmas attack
