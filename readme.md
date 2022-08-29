@@ -14,6 +14,10 @@ Mount automatically: true
 Mount point: /kali-share  
 Permanent configuration: true
 
+## FoxyProxy
+Firefox plugin
+// TODO
+
 ## flameshot (screenshot)
 ### Install
 
@@ -103,6 +107,11 @@ https://dradisframework.com/ce/documentation/reset.html
 
 
 # Information gathering
+## Misc
+
+  - https://gchq.github.io/CyberChef/ - The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis
+  - https://beefproject.com/ - BeEF is short for The Browser Exploitation Framework. It is a penetration testing tool that focuses on the web browser.
+
 ## Frameworks
 
   - https://attack.mitre.org/
@@ -153,13 +162,19 @@ Commands:
 ### HTTP - 80
 
 Commands:
-  - nikto
   - dirb
+  - nikto
+  
+Tools:
+  - burpsuite
+  - dirbuster
 
-##### nikto
-Gives vulnerabilities
-	
-    nikto -h http://<ip>:<port>
+##### burpsuite
+https://www.kali.org/tools/burpsuite/
+
+Burp Suite is an integrated platform for performing security testing of web applications. Its various tools work seamlessly together to support the entire testing process, from initial mapping and analysis of an application’s attack surface, through to finding and exploiting security vulnerabilities.
+
+Burp gives you full control, letting you combine advanced manual techniques with state-of-the-art automation, to make your work faster, more effective, and more fun.
 
 ##### dirb
 Scan available pages
@@ -167,6 +182,18 @@ Scan available pages
     dirb http://<ip> <opt:wordlist>
 	
 wordlist: /usr/share/dirb/wordlist/vulns/...
+
+##### dirbuster
+https://www.kali.org/tools/dirbuster/
+
+DirBuster is a multi threaded java application designed to brute force directories and files names on web/application servers. Often is the case now of what looks like a web server in a state of default installation is actually not, and has pages and applications hidden within. DirBuster attempts to find these.
+
+However tools of this nature are often as only good as the directory and file list they come with. A different approach was taken to generating this. The list was generated from scratch, by crawling the Internet and collecting the directory and files that are actually used by developers! DirBuster comes a total of 9 different lists, this makes DirBuster extremely effective at finding those hidden files and directories. And if that was not enough DirBuster also has the option to perform a pure brute force, which leaves the hidden directories and files nowhere to hide.
+
+##### nikto
+Gives vulnerabilities
+	
+    nikto -h http://<ip>:<port>
 
 #### Export
 
@@ -249,7 +276,7 @@ Restart metasploit-framework
     db_export -f xml -a /kali-share/metasploit-framework.xml
 
 # Training
-## Machines
+## Virtual machines
 https://www.vulnhub.com/
 
   - Metasploitable: 1
@@ -267,6 +294,12 @@ https://www.vulnhub.com/
   - MR-ROBOT: 1
     - Difficulty: ?
     - https://www.vulnhub.com/entry/mr-robot-1,151/
+    
+## Software
+
+  - OWASP - Juice Shop
+    - Type: Web application
+    - https://owasp.org/www-project-juice-shop/
 
 # Attacks
 ## Xmas attack
