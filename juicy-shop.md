@@ -13,7 +13,7 @@ Language: Angular
 
     27 vulnerabilities (13 moderate, 6 high, 8 critical)
 
-Can't run `npm audit`, run first `
+Can't run `npm audit`, run first `npm i --package-lock-only`
 
     ┌──(kali㉿kali)-[~/juice-shop]
     └─$ npm i --package-lock-only
@@ -266,18 +266,148 @@ Open main.js and search `redirect`
         -----------------
         END_TIME: Mon Aug 29 13:17:07 2022
         DOWNLOADED: 3720 - FOUND: 6
+# Files
+
+## http://localhost:3000/ftp/
+### List of files
+HINT: kdbx files are keypass for windows files
+
+        name: quarantine (folder)
+        date: 8/29/2022 2:34:04 PM
+        
+        name: acquisitions.md
+        size: 909
+        date: 8/29/2022 2:34:04 PM
+        
+        name: announcement_encrypted.md
+        size: 369237
+        date: 8/29/2022 2:34:04 PM
+        
+        name: coupons_2013.md.bak
+        size: 131
+        date: 8/29/2022 2:34:04 PM
+        
+        name: eastere.gg
+        size: 324
+        date: 8/29/2022 2:34:04 PM
+        
+        name: encrypt.pyc
+        size: 573
+        date: 8/29/2022 2:34:04 PM
+        
+        name: incident-support.kdbx
+        size: 3246
+        date: 8/29/2022 2:34:04 PM
+        
+        name: legal.md
+        size: 3047
+        date: 8/29/2022 2:56:29 PM
+        
+        name: package.json.bak
+        size: 4291
+        date: 8/29/2022 2:34:04 PM
+        
+        name: suspicious_errors.yml
+        size: 723
+        date: 8/29/2022 2:34:04 PM
+
+# Broken Access Control
+## Admin Section
+Login as admin and go to http://localhost:3000/#/administration
+Got list of users
+
+ - admin@juice-sh.op
+ - jim@juice-sh.op
+ - bender@juice-sh.op
+ - bjoern.kimminich@gmail.com
+ - ciso@juice-sh.op
+ - support@juice-sh.op
+ - morty@juice-sh.op
+ - mc.safesearch@juice-sh.op
+ - J12934@juice-sh.op
+ - wurstbrot@juice-sh.op
+ - amy@juice-sh.op
+ - bjoern@juice-sh.op
+ - bjoern@owasp.org
+ - accountant@juice-sh.op
+ - uvogin@juice-sh.op
+ - demojohn@juice-sh.op
+ - emma@juice-sh.op
+ - stan@juice-sh.op
+
+## Five-Star Feedback
+Login as admin, go to http://localhost:3000/#/administration and delete review
+
+# Improper Input Validation
+## Missing Encoding
+http://localhost:3000/#/photo-wall
+\# is interpeted use %23 instead
+## Repetitive Registration
+http://127.0.0.1:3000/#/register
+
+ 1. Fill email
+ 2. Fill password
+ 3. Fill repeat password
+ 4. Add a char to password
+ 5. Fill Security Question
+ 6. Fill answer
+ 7. Register
+## Zero Stars
+http://127.0.0.1:3000/#/contact
+
+ 1. Open dev tools (F12)
+ 2. Open network tab
+ 3. Submit rating
+ 4. Right-click the request, select "Edit and resend"
+ 5. Request body example: `{"captchaId":1,"captcha":"17","comment":"test (anonymous)","rating":0}`
+ 6. Click send
+
 # Injection
-## XSS
-Send HTML in the search field 
-
-# Chatbot
-Asked him "coupons"
-
-    k#*Agga+jm
-# Admin user
+## Login Admin
 Go to login page
 Email: `' or 1=1;`  
 Password: `test`
 
 Logged in found email address
-    admin@juice-sh.op
+    
+
+ - admin@juice-sh.op
+
+# Miscellaneous
+## Score board
+http://localhost:3000/#/score-board
+## Bully Chatbot
+http://127.0.0.1:3000/#/chatbot
+
+ 1. Hi Juicy
+ 2. code
+ 3. coupons
+
+Got this coupon
+
+    k#*Agga+jm
+## Privacy Policy
+Log in and go to
+http://localhost:3000/#/privacy-security/privacy-policy
+
+
+# Sensitive Data Exposure
+## Confidential Document
+Download files from ftp folder
+## Visual Geo Stalking
+[IN PROGRESS]
+
+ - emma@juice-sh.op
+ - Downloaded IMG_4253.png from Gallery
+ - Search image with Google Lens
+   - https://www.google.com/maps/place/Kenaupark+23/@52.3868727,4.6345079,3a,75y,122.75h,90t/data=!3m4!1e1!3m2!1sit5fyfWvAhub305bDLCP9A!2e0!4m2!3m1!1s0x47c5ef6d6a305d03:0x9190d48aff770ba1?sa=X&ved=2ahUKEwic_Y7k6u35AhVHh_0HHccpDVYQxB16BAgMEAI
+
+# Unvalidated Redirects
+## Outdated Allowlist
+http://localhost:3000/redirect?to=https://explorer.dash.org/address/Xr556RzuwX6hg5EGpkybbv5RanJoZN17kW
+# XSS
+Send HTML in the search field 
+## DOM XSS
+    <iframe src="javascript:alert(`xss`)">
+## Bonus Payload
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe> 
