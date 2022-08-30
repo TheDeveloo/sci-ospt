@@ -26,7 +26,9 @@ https://github.com/nvm-sh/nvm#install--update-script
 
 ## FoxyProxy
 Firefox plugin
-// TODO
+https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search
+
+
 
 ## flameshot (screenshot)
 ### Install
@@ -197,10 +199,16 @@ Burp gives you full control, letting you combine advanced manual techniques with
 
 ##### dirb
 Scan available pages
+https://www.hackingarticles.in/comprehensive-guide-on-dirb-tool/
 
     dirb http://<ip> <opt:wordlist>
+
+options:
+  - `-z`: Add a milliseconds delay to not cause excessive Flood.
 	
-wordlist: /usr/share/dirb/wordlist/vulns/...
+wordlists: 
+  - /usr/share/dirb/wordlist/vulns/...
+  - /usr/share/dirb/wordlists/big.txt
 
 ##### dirbuster
 https://www.kali.org/tools/dirbuster/
