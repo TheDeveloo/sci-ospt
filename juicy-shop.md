@@ -266,6 +266,43 @@ Open main.js and search `redirect`
     -----------------
     END_TIME: Mon Aug 29 13:17:07 2022
     DOWNLOADED: 3720 - FOUND: 6
+    
+Second pass with big list and 10 millisecond delay
+    
+    ┌──(kali㉿kali)-[~]
+    └─$ dirb http://localhost:3000/ /usr/share/dirb/wordlists/big.txt -z 10
+    
+    -----------------
+    DIRB v2.22    
+    By The Dark Raver
+    -----------------
+    
+    START_TIME: Tue Aug 30 13:40:37 2022
+    URL_BASE: http://localhost:3000/
+    WORDLIST_FILES: /usr/share/dirb/wordlists/big.txt
+    SPEED_DELAY: 10 milliseconds
+    
+    -----------------
+    
+    GENERATED WORDS: 20458                                                         
+    
+    ---- Scanning URL: http://localhost:3000/ ----
+    + http://localhost:3000/Video (CODE:200|SIZE:10075518)                                                                                       
+    + http://localhost:3000/assets (CODE:301|SIZE:179)                                                                                           
+    + http://localhost:3000/ftp (CODE:200|SIZE:11062)                                                                                            
+    + http://localhost:3000/metrics (CODE:200|SIZE:23010)                                                                                        
+    + http://localhost:3000/profile (CODE:500|SIZE:1261)                                                                                         
+    + http://localhost:3000/promotion (CODE:200|SIZE:6586)                                                                                       
+    + http://localhost:3000/redirect (CODE:500|SIZE:3339)                                                                                        
+    + http://localhost:3000/robots.txt (CODE:200|SIZE:28)                                                                                        
+    + http://localhost:3000/secci� (CODE:400|SIZE:3341)                                                                                          
+    + http://localhost:3000/snippets (CODE:200|SIZE:683)                                                                                         
+    + http://localhost:3000/video (CODE:200|SIZE:10075518)                                                                                       
+                                                                                                                                                 
+    -----------------
+    END_TIME: Tue Aug 30 13:46:49 2022
+    DOWNLOADED: 20458 - FOUND: 11
+
 # Files
 
 ## robots.txt
@@ -344,7 +381,12 @@ Got list of users
 
 ## Five-Star Feedback
 Login as admin, go to http://localhost:3000/#/administration and delete review
-
+## View Basket
+  1. Open dev tools
+  2. Go to basket page
+  3. find the request GET /rest/basket/{id}
+  4. edit the request and set a lower id
+  5. send
 # Improper Input Validation
 ## Missing Encoding
 http://localhost:3000/#/photo-wall  
@@ -375,6 +417,8 @@ Go to login page
 Email: `' or 1=1;`  
 Password: `test`
 
+Note: Works with email `' or 1=1 --` "--" is used to comment out the remaining SQL Query
+
 Logged in found email address
     
 
@@ -401,6 +445,10 @@ http://localhost:3000/#/privacy-security/privacy-policy
 # Sensitive Data Exposure
 ## Confidential Document
 Download files from ftp folder
+## Exposed metrics
+https://prometheus.io/docs/introduction/first_steps/#using-the-expression-browser
+Tells endpoint is /metrics
+Tested http://localhost:3000/metrics
 ## Visual Geo Stalking
 [IN PROGRESS]
 
