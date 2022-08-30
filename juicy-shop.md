@@ -340,7 +340,7 @@ Login as admin, go to http://localhost:3000/#/administration and delete review
 
 # Improper Input Validation
 ## Missing Encoding
-http://localhost:3000/#/photo-wall
+http://localhost:3000/#/photo-wall  
 \# is interpeted use %23 instead
 ## Repetitive Registration
 http://127.0.0.1:3000/#/register
@@ -405,12 +405,6 @@ Download files from ftp folder
 # Unvalidated Redirects
 ## Outdated Allowlist
 http://localhost:3000/redirect?to=https://explorer.dash.org/address/Xr556RzuwX6hg5EGpkybbv5RanJoZN17kW
-# XSS
-Send HTML in the search field 
-## DOM XSS
-    <iframe src="javascript:alert(`xss`)">
-## Bonus Payload
-    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe> 
 
 # XSS
 Send HTML in the search field 
@@ -418,48 +412,4 @@ Send HTML in the search field
     <iframe src="javascript:alert(`xss`)">
 ## Bonus Payload
     <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe> 
-# Improper Input Validation
-## Missing Encoding
-http://localhost:3000/#/photo-wall
-\# is interpeted use %23 instead
-## Repetitive Registration
-http://127.0.0.1:3000/#/register
 
- 1. Fill email
- 2. Fill password
- 3. Fill repeat password
- 4. Add a char to password
- 5. Fill Security Question
- 6. Fill answer
- 7. Register
-## Zero Stars
-http://127.0.0.1:3000/#/contact
-
- 1. Open dev tools (F12)
- 2. Open network tab
- 3. Submit rating
- 4. Right-click the request, select "Edit and resend"
- 5. Request body example: `{"captchaId":1,"captcha":"17","comment":"test (anonymous)","rating":0}`
- 6. Click send
-
-# Miscellaneous
-## Score board
-http://localhost:3000/#/score-board
-## Bully Chatbot
-http://127.0.0.1:3000/#/chatbot
-
- 1. Hi Juicy
- 2. code
- 3. coupons
-
-Got this coupon
-
-    k#*Agga+jm
-## Privacy Policy
-Log in and go to
-http://localhost:3000/#/privacy-security/privacy-policy
-
-
-# Unvalidated Redirects
-## Outdated Allowlist
-http://localhost:3000/redirect?to=https://explorer.dash.org/address/Xr556RzuwX6hg5EGpkybbv5RanJoZN17kW
