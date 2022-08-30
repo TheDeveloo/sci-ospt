@@ -181,7 +181,7 @@ Run `npm audit`
 ### Routes
 Open main.js and find lines with `path:`
 
-    	Line 16800:         path: 'administration',
+    Line 16800:         path: 'administration',
 	Line 16807:         path: 'accounting',
 	Line 16814:         path: 'about',
 	Line 16818:         path: 'address/select',
@@ -237,79 +237,86 @@ Open main.js and search `redirect`
 ## dirb 
 
 
-        └─$ dirb http://localhost:1000/                          
-        
-        -----------------
-        DIRB v2.22    
-        By The Dark Raver
-        -----------------
-        
-        START_TIME: Mon Aug 29 13:16:06 2022
-        URL_BASE: http://localhost:1000/
-        WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
-        
-        -----------------
-        
-        GENERATED WORDS: 4612                                                          
-        
-        ---- Scanning URL: http://localhost:1000/ ----
-        + http://localhost:1000/assets (CODE:301|SIZE:179)                                                                                           
-        + http://localhost:1000/ftp (CODE:200|SIZE:11062)                                                                                            
-        + http://localhost:1000/profile (CODE:500|SIZE:1243)                                                                                         
-        + http://localhost:1000/promotion (CODE:200|SIZE:6586)                                                                                       
-        + http://localhost:1000/redirect (CODE:500|SIZE:3126)                                                                                        
-        + http://localhost:1000/robots.txt (CODE:200|SIZE:28)                                                                                        
-                                                                                                                                                     
-        (!) FATAL: Too many errors connecting to host
-            (Possible cause: RECV ERROR)
-                                                                                       
-        -----------------
-        END_TIME: Mon Aug 29 13:17:07 2022
-        DOWNLOADED: 3720 - FOUND: 6
+    └─$ dirb http://localhost:1000/                          
+    
+    -----------------
+    DIRB v2.22    
+    By The Dark Raver
+    -----------------
+    
+    START_TIME: Mon Aug 29 13:16:06 2022
+    URL_BASE: http://localhost:1000/
+    WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+    
+    -----------------
+    
+    GENERATED WORDS: 4612                                                          
+    
+    ---- Scanning URL: http://localhost:1000/ ----
+    + http://localhost:1000/assets (CODE:301|SIZE:179)                                                                                           
+    + http://localhost:1000/ftp (CODE:200|SIZE:11062)                                                                                            
+    + http://localhost:1000/profile (CODE:500|SIZE:1243)                                                                                         
+    + http://localhost:1000/promotion (CODE:200|SIZE:6586)                                                                                       
+    + http://localhost:1000/redirect (CODE:500|SIZE:3126)                                                                                        
+    + http://localhost:1000/robots.txt (CODE:200|SIZE:28)                                                                                        
+                                                                                                                                                 
+    (!) FATAL: Too many errors connecting to host
+        (Possible cause: RECV ERROR)
+                                                                                   
+    -----------------
+    END_TIME: Mon Aug 29 13:17:07 2022
+    DOWNLOADED: 3720 - FOUND: 6
 # Files
+
+## robots.txt
+
+    ┌──(kali㉿kali)-[~]
+    └─$ curl http://localhost:1000/robots.txt
+    User-agent: *
+    Disallow: /ftp
 
 ## http://localhost:3000/ftp/
 ### List of files
 HINT: kdbx files are keypass for windows files
 
-        name: quarantine (folder)
-        date: 8/29/2022 2:34:04 PM
-        
-        name: acquisitions.md
-        size: 909
-        date: 8/29/2022 2:34:04 PM
-        
-        name: announcement_encrypted.md
-        size: 369237
-        date: 8/29/2022 2:34:04 PM
-        
-        name: coupons_2013.md.bak
-        size: 131
-        date: 8/29/2022 2:34:04 PM
-        
-        name: eastere.gg
-        size: 324
-        date: 8/29/2022 2:34:04 PM
-        
-        name: encrypt.pyc
-        size: 573
-        date: 8/29/2022 2:34:04 PM
-        
-        name: incident-support.kdbx
-        size: 3246
-        date: 8/29/2022 2:34:04 PM
-        
-        name: legal.md
-        size: 3047
-        date: 8/29/2022 2:56:29 PM
-        
-        name: package.json.bak
-        size: 4291
-        date: 8/29/2022 2:34:04 PM
-        
-        name: suspicious_errors.yml
-        size: 723
-        date: 8/29/2022 2:34:04 PM
+    name: quarantine (folder)
+    date: 8/29/2022 2:34:04 PM
+    
+    name: acquisitions.md
+    size: 909
+    date: 8/29/2022 2:34:04 PM
+    
+    name: announcement_encrypted.md
+    size: 369237
+    date: 8/29/2022 2:34:04 PM
+    
+    name: coupons_2013.md.bak
+    size: 131
+    date: 8/29/2022 2:34:04 PM
+    
+    name: eastere.gg
+    size: 324
+    date: 8/29/2022 2:34:04 PM
+    
+    name: encrypt.pyc
+    size: 573
+    date: 8/29/2022 2:34:04 PM
+    
+    name: incident-support.kdbx
+    size: 3246
+    date: 8/29/2022 2:34:04 PM
+    
+    name: legal.md
+    size: 3047
+    date: 8/29/2022 2:56:29 PM
+    
+    name: package.json.bak
+    size: 4291
+    date: 8/29/2022 2:34:04 PM
+    
+    name: suspicious_errors.yml
+    size: 723
+    date: 8/29/2022 2:34:04 PM
 
 # Broken Access Control
 ## Admin Section
