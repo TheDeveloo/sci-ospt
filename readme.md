@@ -88,10 +88,10 @@ http://127.0.0.1:3000
  - Choose a file
  - Read "Output console" to check result is ok
 #### Importable files
- - nmap -`Dradis::Plugins::Nmap`, see nmap / export below
- - nikto -`Dradis::Plugins::Nikto`, see nikto / export below
- - metasploit-framework - `Dradis::Plugins::Metasploit`, see metasploit
-   framework / export database below
+ - nmap -`Dradis::Plugins::Nmap`, see [nmap / export](./tools/tools.md#nikto)
+ - nikto -`Dradis::Plugins::Nikto`, see [nikto / export](./tools/tools.md#nikto)
+ - metasploit-framework - `Dradis::Plugins::Metasploit`, see [metasploit
+   framework / export database](./tools/tools.md#Export database)
 
 ### Reset
 https://dradisframework.com/ce/documentation/reset.html
