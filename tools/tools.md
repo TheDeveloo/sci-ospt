@@ -23,12 +23,42 @@ wordlists:
 - /usr/share/dirb/wordlist/vulns/...
 - /usr/share/dirb/wordlists/big.txt
 
+# Export
+
+    dirb http://<ip>:<port> > /kali-share/dirb-<ip>-<port>.txt
+
 # dirbuster
 https://www.kali.org/tools/dirbuster/
 
 DirBuster is a multi threaded java application designed to brute force directories and files names on web/application servers. Often is the case now of what looks like a web server in a state of default installation is actually not, and has pages and applications hidden within. DirBuster attempts to find these.
 
 However tools of this nature are often as only good as the directory and file list they come with. A different approach was taken to generating this. The list was generated from scratch, by crawling the Internet and collecting the directory and files that are actually used by developers! DirBuster comes a total of 9 different lists, this makes DirBuster extremely effective at finding those hidden files and directories. And if that was not enough DirBuster also has the option to perform a pure brute force, which leaves the hidden directories and files nowhere to hide.
+
+# hydra
+
+a very fast network logon cracker which support many different services
+
+## Brute force - HTTP-FORM-POST
+> **HINT**  
+> Brute force HTTP-FORM-POST can also be achieved with burpsuite but the free version has limitations
+
+Use burpsuite or the browser to get the request payload
+
+![Get payload for hydra with firefox](../assets/hydra-http-form-post-payload-firefox.jpeg)
+![Get payload for hydra with burpsuite](../assets/hydra-http-form-post-payload-burpsuite.jpeg)
+
+
+    hydra -l <username> -P <pwd-list> <ip|dns> http-form-post "<login-page>:<post-content>:Invalid username"
+
+Example:
+
+    hydra -l Elliot -P /kali-share/downloads/fsocity.dic 192.168.56.105 http-form-post "/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In&redirect_to=http%3A%2F%2F192.168.56.105%2Fwp-admin%2F&testcookie=1:Invalid username"
+
+Options:
+  - `-l` username
+  - `-L` username list
+  - `-p` password
+  - `-P` password list
 
 # Metasploit framework
 
@@ -149,7 +179,6 @@ Gives vulnerabilities
 ## Export
 
     nikto -h http://<ip>:<port> -o '/kali-share/nikto-<ip>-<port>.xml' -Format xml
-    dirb http://<ip>:<port> >> /kali-share/dirb-<ip>-<port>.txt
 
 Check if you find the following
 

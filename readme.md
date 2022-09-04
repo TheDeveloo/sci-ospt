@@ -104,8 +104,8 @@ Commands:
 #### HTTP - 80
 
 Commands:
-  - dirb
-  - nikto
+  - [dirb](./tools/tools.md#dirb)
+  - [nikto](./tools/tools.md#nikto)
   
 Tools:
   - burpsuite

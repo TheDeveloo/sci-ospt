@@ -158,6 +158,7 @@ https://dradisframework.com/ce/documentation/reset.html
 - Check "Use fixed path for screenshots to save
 - Preferred save file extension `jpeg`
 
+![Flameshot configuration on kali](../assets/flameshot-configuration-kali.jpeg)
 
 ### Keyboard shortcuts
 In kali
