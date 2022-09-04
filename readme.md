@@ -61,7 +61,7 @@ See [tools page](./tools/tools.md)
 
 #### VirtualBox network
 
-![VirtualBox network manager](./assets/virtualbox-network-manager.png)
+![VirtualBox network manager](./assets/virtualbox-network-manager.jpg)
 
 ### Port scanning
 > Jackpot if these ports are open: 21, 80, 139, 445
