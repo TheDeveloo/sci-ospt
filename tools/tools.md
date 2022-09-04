@@ -53,6 +53,53 @@ https://docs.rapid7.com/metasploit/exporting-and-importing-data/
 
     workspace <workspace-name>
 
+### Troubleshooting
+#### Database not connected
+    msf6 > workspace
+    [-] Database not connected
+1. Check if running `sudo msfconsole` (or without sudo) changes the status
+2. Run `sudo msfdb init && msfconsole` (that the command run by the kali menu)
+3. Ensure the database is running 
+
+Ensure the postgresql service is running
+
+    ┌──(kali㉿kali)-[~]
+    └─$ sudo service postgresql status    
+    [sudo] password for kali:
+    ○ postgresql.service - PostgreSQL RDBMS
+    Loaded: loaded (/lib/systemd/system/postgresql.service; disabled; vendor preset: disabled)
+    Active: inactive (dead)
+
+Start it
+
+    ┌──(kali㉿kali)-[~]
+    └─$ sudo service postgresql start
+
+    ┌──(kali㉿kali)-[~]
+    └─$ sudo service postgresql status
+    ● postgresql.service - PostgreSQL RDBMS
+    Loaded: loaded (/lib/systemd/system/postgresql.service; disabled; vendor preset: disabled)
+    Active: active (exited) since Sun 2022-09-04 04:49:20 EDT; 2min 12s ago
+    Process: 37180 ExecStart=/bin/true (code=exited, status=0/SUCCESS)
+    Main PID: 37180 (code=exited, status=0/SUCCESS)
+    CPU: 3ms
+    
+    Sep 04 04:49:20 kali systemd[1]: Starting PostgreSQL RDBMS...
+    Sep 04 04:49:20 kali systemd[1]: Finished PostgreSQL RDBMS.
+
+Check the status on metasploit
+
+    msf6 > db_status
+    [*] Connected to msf. Connection type: postgresql.
+    msf6 > sudo msfdb init
+    [*] exec: sudo msfdb init
+    
+    [sudo] password for kali:
+    [i] Database already started
+    [i] The database appears to be already configured, skipping initialization
+
+
+
 ## Scanning
 This will add the remote machine to hosts
 
