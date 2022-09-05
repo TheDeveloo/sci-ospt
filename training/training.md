@@ -15,7 +15,7 @@ https://www.vulnhub.com/
     - Type: Escape room
     - https://www.vulnhub.com/entry/empire-breakout,751/
 - MR-ROBOT: 1
-    - Difficulty: ?
+    - Difficulty: Intermediate
     - https://www.vulnhub.com/entry/mr-robot-1,151/
 
 ## Docker

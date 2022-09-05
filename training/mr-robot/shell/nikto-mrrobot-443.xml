@@ -1,0 +1,183 @@
+<?xml version="1.0" ?>
+<!DOCTYPE niktoscan SYSTEM "/var/lib/nikto/docs/nikto.dtd">
+<niktoscan>
+<niktoscan hoststest="0" options="-h https://192.168.56.105:443 -o /kali-share/nikto-mrrobot-443.xml -Format xml" version="2.1.6" scanstart="Sun Sep  4 06:28:55 2022" scanend="Wed Dec 31 19:00:00 1969" scanelapsed=" seconds" nxmlversion="1.2">
+
+<scandetails targetip="192.168.56.105" targethostname="192.168.56.105" targetport="443" targetbanner="Apache" starttime="2022-09-04 06:28:56" sitename="https://192.168.56.105:443/" siteip="https://192.168.56.105:443/" hostheader="192.168.56.105" errors="0" checks="6897">
+<ssl ciphers="ECDHE-RSA-AES256-GCM-SHA384" issuers="/CN=www.example.com" info="/CN=www.example.com" altnames="" />
+
+<item id="999102" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS]]></description>
+<uri><![CDATA[/]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/]]></iplink>
+</item>
+
+<item id="999970" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[The site uses SSL and the Strict-Transport-Security HTTP header is not defined.]]></description>
+<uri><![CDATA[/]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/]]></iplink>
+</item>
+
+<item id="999955" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[The site uses SSL and Expect-CT header is not present.]]></description>
+<uri><![CDATA[/]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/]]></iplink>
+</item>
+
+<item id="999103" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type]]></description>
+<uri><![CDATA[/]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/]]></iplink>
+</item>
+
+<item id="999986" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[Retrieved x-powered-by header: PHP/5.5.29]]></description>
+<uri><![CDATA[/Yu0XeaBY.thtml]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/Yu0XeaBY.thtml]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/Yu0XeaBY.thtml]]></iplink>
+</item>
+
+<item id="999966" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[The Content-Encoding header is set to "deflate" this may mean that the server is vulnerable to the BREACH attack.]]></description>
+<uri><![CDATA[/]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/]]></iplink>
+</item>
+
+<item id="999100" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[Uncommon header 'tcn' found, with contents: list]]></description>
+<uri><![CDATA[/index]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/index]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/index]]></iplink>
+</item>
+
+<item id="999965" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[Apache mod_negotiation is enabled with MultiViews, which allows attackers to easily brute force file names. See http://www.wisec.it/sectou.php?id=4698ebdc59d15. The following alternatives for 'index' were found: index.html, index.php]]></description>
+<uri><![CDATA[/index]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/index]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/index]]></iplink>
+</item>
+
+<item id="999993" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[Hostname '192.168.56.105' does not match certificate's names: www.example.com]]></description>
+<uri><![CDATA[/]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/]]></iplink>
+</item>
+
+<item id="001551" osvdbid="3092" osvdblink="http://osvdb.org/3092" method="GET">
+<description><![CDATA[/admin/: This might be interesting...]]></description>
+<uri><![CDATA[/admin/]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/admin/]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/admin/]]></iplink>
+</item>
+
+<item id="001820" osvdbid="3092" osvdblink="http://osvdb.org/3092" method="GET">
+<description><![CDATA[/readme: This might be interesting...]]></description>
+<uri><![CDATA[/readme]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/readme]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/readme]]></iplink>
+</item>
+
+<item id="999100" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[Uncommon header 'link' found, with contents: <https://192.168.56.105/?p=23>; rel=shortlink]]></description>
+<uri><![CDATA[/image/]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/image/]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/image/]]></iplink>
+</item>
+
+<item id="006184" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[/wp-links-opml.php: This WordPress script reveals the installed version.]]></description>
+<uri><![CDATA[/wp-links-opml.php]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/wp-links-opml.php]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/wp-links-opml.php]]></iplink>
+</item>
+
+<item id="006186" osvdbid="3092" osvdblink="http://osvdb.org/3092" method="GET">
+<description><![CDATA[/license.txt: License file found may identify site software.]]></description>
+<uri><![CDATA[/license.txt]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/license.txt]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/license.txt]]></iplink>
+</item>
+
+<item id="006230" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[/admin/index.html: Admin login page/section found.]]></description>
+<uri><![CDATA[/admin/index.html]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/admin/index.html]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/admin/index.html]]></iplink>
+</item>
+
+<item id="999960" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[Cookie wordpress_test_cookie created without the secure flag]]></description>
+<uri><![CDATA[/wp-login/]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/wp-login/]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/wp-login/]]></iplink>
+</item>
+
+<item id="999961" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[Cookie wordpress_test_cookie created without the httponly flag]]></description>
+<uri><![CDATA[/wp-login/]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/wp-login/]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/wp-login/]]></iplink>
+</item>
+
+<item id="006415" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[/wp-login/: Admin login page/section found.]]></description>
+<uri><![CDATA[/wp-login/]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/wp-login/]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/wp-login/]]></iplink>
+</item>
+
+<item id="006443" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[/wordpress: A Wordpress installation was found.]]></description>
+<uri><![CDATA[/wordpress]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/wordpress]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/wordpress]]></iplink>
+</item>
+
+<item id="006666" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[/wp-admin/wp-login.php: Wordpress login found]]></description>
+<uri><![CDATA[/wp-admin/wp-login.php]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/wp-admin/wp-login.php]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/wp-admin/wp-login.php]]></iplink>
+</item>
+
+<item id="006666" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[/wordpresswp-admin/wp-login.php: Wordpress login found]]></description>
+<uri><![CDATA[/wordpresswp-admin/wp-login.php]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/wordpresswp-admin/wp-login.php]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/wordpresswp-admin/wp-login.php]]></iplink>
+</item>
+
+<item id="006667" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[/blog/wp-login.php: Wordpress login found]]></description>
+<uri><![CDATA[/blog/wp-login.php]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/blog/wp-login.php]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/blog/wp-login.php]]></iplink>
+</item>
+
+<item id="006668" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[/wp-login.php: Wordpress login found]]></description>
+<uri><![CDATA[/wp-login.php]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/wp-login.php]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/wp-login.php]]></iplink>
+</item>
+
+<item id="006668" osvdbid="0" osvdblink="http://osvdb.org/0" method="GET">
+<description><![CDATA[/wordpresswp-login.php: Wordpress login found]]></description>
+<uri><![CDATA[/wordpresswp-login.php]]></uri>
+<namelink><![CDATA[https://192.168.56.105:443/wordpresswp-login.php]]></namelink>
+<iplink><![CDATA[https://192.168.56.105:443/wordpresswp-login.php]]></iplink>
+</item>
+
+<statistics elapsed="316" itemsfound="24" itemstested="6897" endtime="2022-09-04 06:34:12" />
+</scandetails>
+
+</niktoscan>
+
+
+</niktoscan>

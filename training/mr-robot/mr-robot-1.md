@@ -2,27 +2,29 @@
 ## Lab Penetration Test Report
 
 Version 1.0  
-04.09.2022
+05.09.2022
 
 TheDeveloo 
 
 # Table of Contents
 
-  - [Introduction](mr-robot-1.md#Introduction)
-  - [Objective](mr-robot-1.md#Objective)
-  - [Requirements](mr-robot-1.md#Requirements)
-  - [High-Level Summary](mr-robot-1.md#High-Level Summary)
-    - [Recommendations](mr-robot-1.md#Recommendations)
-  - [Methodology](mr-robot-1.md#Methodology)
-  - [Reporting](mr-robot-1.md#Reporting)
-  - [Information Gathering](mr-robot-1.md#Information Gathering)
-  - [Penetration Test](mr-robot-1.md#Penetration Test)
-    - [Summary](mr-robot-1.md#Summary)
-    - [Exploits/Vulnerabilities & Recommendations](mr-robot-1.md#Exploits)
-    - [References](mr-robot-1.md#References)
-  - [Maintaining Access](mr-robot-1.md#Maintaining Access)
-  - [House Cleaning](mr-robot-1.md#House Cleaning)
-  - [Appendices](mr-robot-1.md#Appendices)
+  - [Introduction](mr-robot-1.md#introduction)
+  - [Objective](mr-robot-1.md#objective)
+  - [Requirements](mr-robot-1.md#requirements)
+  - [High-Level Summary](mr-robot-1.md#high-level-summary)
+    - [Recommendations](mr-robot-1.md#recommendations)
+  - [Methodology](mr-robot-1.md#methodology)
+  - [Reporting](mr-robot-1.md#reporting)
+  - [Information Gathering](mr-robot-1.md#information-gathering)
+  - [Penetration Test](mr-robot-1.md#penetration-test)
+    - [Summary](mr-robot-1.md#summary)
+    - [Kill Chain - Phase 1](mr-robot-1.md#kill-chain--phase-1)
+    - [Kill Chain - Phase 2](mr-robot-1.md#kill-chain--phase-2)
+    - [Exploits/Vulnerabilities & Recommendations](mr-robot-1.md#exploitsvulnerabilities--recommendations)
+    - [References](mr-robot-1.md#references)
+  - [Maintaining Access](mr-robot-1.md#maintaining-access)
+  - [House Cleaning](mr-robot-1.md#house-cleaning)
+  - [Appendices](mr-robot-1.md#appendices)
 
 # Introduction
 # Objective
@@ -30,12 +32,13 @@ TheDeveloo
 
 # High-Level Summary
 ## Recommendations
-•
-
-•
+  - Update WordPress
+  - Set brute force prevention
 
 # Methodology
-The methodology used in this engagement followed a robust penetration testing methodology based on the Cyber Kill Chain to enumerate and exploit each host. This report details each step …
+The methodology used in this engagement followed a robust penetration testing methodology based on the Cyber Kill Chain to enumerate and exploit each host.  
+This report details each step …  
+
 The methodology is as follows:
   - Reconnaissance
   - Weaponisation
@@ -73,11 +76,18 @@ Tools and techniques used in this stage include:
   - hydra
 
 ### Delivery
-This stage of the attack involves delivering …  
-Tools and techniques used in this stage of the attack include…
+This stage of the attack involves delivering:
+  - reserve shell script through WordPress template editor
+
+Tools and techniques used in this stage of the attack include:
+
+  - WordPress
 ### Exploit
 This stage of the attack is where a vulnerability in an application …  
-Tools and techniques used in this stage of the attack include …
+Tools and techniques used in this stage of the attack include
+
+  - reverse shell
+
 ### Privilege Escalation
 This stage of the attack involves escalation privilege to a …  
 Tools and techniques used in this stage of the attack include …
@@ -285,7 +295,7 @@ Reveals Wordpress 4.3.1
 
 ### http://192.168.56.105/?p=23
 
-![](./assets/Screenshot_2022-09-04_06-43-39.png)
+![Website console](./assets/2022-09-05 07_44_27-Screenshot_2022-09-04_06-43-39.jpg)
 
 ### http://192.168.56.105/wp-login
 
@@ -350,15 +360,15 @@ Try fake hostname
 ![WordPress Pingback Access - Proof](assets/2022-09-04_07-15.jpeg)
 
 # Penetration Test
-| Key                     | Value                |
-|-------------------------|----------------------|
-| Hostname                | MrRobot              |
-| IP Address              | 192.168.56.105       |
-| Operating System        | Debian               |
-| Ports Open              | 80, 443              |
-| Services & Applications | - Wordpress          |
-| Credentials             | - Username: `Elliot` |
-| Proof                   |                      |
+| Key                     | Value                                          |
+|-------------------------|------------------------------------------------|
+| Hostname                | MrRobot                                        |
+| IP Address              | 192.168.56.105                                 |
+| Operating System        | Debian                                         |
+| Ports Open              | 80, 443                                        |
+| Services & Applications | - Wordpress                                    |
+| Credentials             | - WP User: `Elliot`<br/>- WP Pass: `ER28-0652` |
+| Proof                   |                                                |
 
 ## Summary
 
@@ -421,7 +431,7 @@ Login using:
   - Username: `Elliot`
   - Password: `ER28-0652`
 
-![WordPress administration](assets/2022-09-04 20_09_15-.png)
+![WordPress administration](assets/2022-09-05 07_43_17-2022-09-04 20_09_15-.jpg)
 
 ## Kill Chain – Phase 2
 
@@ -431,7 +441,7 @@ Create page with a script, maybe we can create a reverse shell
 
 ![XSS alert on created page](assets/2022-09-04_14-28.jpeg)
 
-Yes, we can
+Yes, we can... ...but not so useful
 
 #### WordPress Plugins
 ![WordPress plugin list](assets/2022-09-04_14-20.jpeg)
@@ -439,6 +449,12 @@ Yes, we can
 #### WordPress Users
 
 ![WordPress users list](assets/2022-09-04_14-30.jpeg)
+
+#### WordPress template editor
+This WordPress allows users to edit php files of the template
+
+We should be able to insert a reverse shell  
+https://github.com/nisforrnicholas/WordPress-Theme-Editor-Exploit
 
 ### Weaponisation
 ### Delivery
@@ -466,6 +482,8 @@ Yes, we can
   - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
   - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
   - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+  - https://github.com/nisforrnicholas/WordPress-Theme-Editor-Exploit
+  - https://linuxconfig.org/use-wpscan-to-scan-wordpress-for-vulnerabilities-on-kali
 
 # Maintaining Access
 On each host that was compromised, …

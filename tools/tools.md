@@ -143,6 +143,10 @@ Useful to set RHOSTS of exploits rapidly
 
     hosts -R
 
+### set options globally
+
+    setg <option> <value>
+
 ## Scanner
 ### set USER_FILE
 #### rockyou
@@ -185,3 +189,13 @@ Check if you find the following
 - phpinfo
 - system requirements
 - software (i.e. twiki)
+
+# wpscan
+Vulnerabilities in WordPress can be uncovered by the WPScan utility, which comes installed by default in Kali Linux. It’s also a great tool for gathering general reconnaissance information about a website that’s running WordPress.
+
+    wpscan --url http://example.com --api-token TOKEN --detection-mode aggressive
+
+> **HINT**  
+> Create a free profile on https://wpscan.com/ to get an API token  
+> Daily API request limit: 75    
+> Vulnerabilities are not shown if you don't use an API token

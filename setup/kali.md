@@ -27,6 +27,21 @@ Mount automatically: true
 Mount point: /kali-share  
 Permanent configuration: true
 
+## Firefox
+
+### Download folder
+
+![Configure firefox default download folder](../assets/configure-download-folder-firefox.jpg)
+
+### FoxyProxy
+Firefox plugin  
+https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
+
+### Cookie Manager
+Firefox plugin  
+Used to reuse fetched auth / session cookies  
+https://addons.mozilla.org/fr/firefox/addon/a-cookie-manager/
+
 ## nvm (Node Version Manager)
 
 https://github.com/nvm-sh/nvm#install--update-script
@@ -37,14 +52,7 @@ https://github.com/nvm-sh/nvm#install--update-script
     
     nvm install 18
 
-## FoxyProxy
-Firefox plugin
-https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
 
-## Cookie Manager
-Firefox plugin  
-Used to reuse fetched auth / session cookies  
-https://addons.mozilla.org/fr/firefox/addon/a-cookie-manager/
 
 ## Docker
 
