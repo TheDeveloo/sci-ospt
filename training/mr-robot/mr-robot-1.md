@@ -1113,6 +1113,7 @@ Download LinEnum.sh on the target machine
     drwxrwxrwt  2 root   root    4096 Sep  8 20:04 .ICE-unix
     drwxrwxrwt  2 root   root    4096 Sep  8 20:04 .X11-unix
     -rw-r--r--  1 daemon daemon 46631 Sep  8 20:12 LinEnum.sh
+
     chmod +x LinEnum.sh
     
     ls -la
@@ -1122,6 +1123,7 @@ Download LinEnum.sh on the target machine
     drwxrwxrwt  2 root   root    4096 Sep  8 20:04 .ICE-unix
     drwxrwxrwt  2 root   root    4096 Sep  8 20:04 .X11-unix
     -rwxr-xr-x  1 daemon daemon 46631 Sep  8 20:12 LinEnum.sh
+
     ./LinEnum.sh
     
     #########################################################

