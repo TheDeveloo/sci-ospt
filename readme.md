@@ -80,6 +80,8 @@ See [tools page](./tools/tools.md)
 
 ### Network scanning
 
+https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks
+
     ┌──(kali㉿kali)-[~]
     └─$ nmap -sP 192.168.56.0/24
     Starting Nmap 7.92 ( https://nmap.org ) at 2022-09-04 05:44 EDT
