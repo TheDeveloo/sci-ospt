@@ -1,5 +1,7 @@
 ﻿# Kali setup
-## Virtual box network
+
+# VirtualBox
+## Network
 https://www.virtualbox.org/manual/ch06.html
 
 | **Mode**   | **VM→Host** | **VM←Host**                                                                                                                | **VM1↔VM2** | **VM→Net/LAN** | **VM←Net/LAN**                                                                                                             |
@@ -11,6 +13,13 @@ https://www.virtualbox.org/manual/ch06.html
 | NATservice | **+**       | [Port forward](https://www.virtualbox.org/manual/ch06.html#network_nat_service "6.4. Network Address Translation Service") | **+**       | **+**          | [Port forward](https://www.virtualbox.org/manual/ch06.html#network_nat_service "6.4. Network Address Translation Service") |
 
 Note: Restart after setting port forwarding
+
+Kali has two network adapters
+- NAT
+- Host-only
+
+Other VM have
+- Host-only
 
 ## Share with host machine
 In virtual box
@@ -27,22 +36,22 @@ Mount automatically: true
 Mount point: /kali-share  
 Permanent configuration: true
 
-## Firefox
+# Firefox
 
-### Download folder
+## Download folder
 
 ![Configure firefox default download folder](../assets/configure-download-folder-firefox.jpg)
 
-### FoxyProxy
+## FoxyProxy
 Firefox plugin  
 https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
 
-### Cookie Manager
+## Cookie Manager
 Firefox plugin  
 Used to reuse fetched auth / session cookies  
 https://addons.mozilla.org/fr/firefox/addon/a-cookie-manager/
 
-## nvm (Node Version Manager)
+# nvm (Node Version Manager)
 
 https://github.com/nvm-sh/nvm#install--update-script
 
@@ -53,20 +62,19 @@ https://github.com/nvm-sh/nvm#install--update-script
     nvm install 18
 
 
+# Docker
 
-## Docker
-
-### Install
+## Install
 https://www.kali.org/docs/containers/installing-docker-on-kali/
 
 To install Docker on Kali you need to remember that there is already a package named “docker”, therefore Docker has to be installed under a different name. If you install docker you will not end up with the container version. The version we will be installing is named docker.io. All commands are the same however, so running docker on the command line will be the appropriate command.
 
 
-## Dradis CE
+# Dradis CE
 Allows to store information.  
 Unfortunately, there's no way to export nodes but a copy paste do the job
 
-### Install
+## Install
 **DO NOT USE** kali documentation: https://www.kali.org/tools/dradis/
 
 Use the official installation documentation instead:  
@@ -74,7 +82,7 @@ https://dradisframework.com/ce/documentation/ruby.html (I'm using ruby 3.1.2)
 https://dradisframework.com/ce/documentation/install_kali.html  
 https://dradisframework.com/ce/documentation/install_git.html
 
-### Getting started
+## Getting started
 HINT: This will use a standalone terminal
 
     cd ~/dradis-ce
@@ -99,11 +107,11 @@ Ouput:
     * Listening on http://[::1]:3000
     * Use Ctrl-C to stop
 
-#### Access address
+### Access address
 See `Listening on` when starting dradis  
 Above the address is `http://127.0.0.1:3000`
 
-### Alias
+## Alias
 You can put an alias to do it easier, i.e. 'dradis'  
 First check if the alias exists
 
@@ -132,31 +140,31 @@ Restart your shell, you can now start dradis
       Use Ctrl-C to stop
 
 
-### Import data
+## Import data
 
 - Click on the "Upload" tab
 - Choose a tool
 - Choose a file
 - Read "Output console" to check result is ok
-#### Importable files
+### Importable files
 - nmap -`Dradis::Plugins::Nmap`, see [nmap / export](./tools/tools.md#nikto)
 - nikto -`Dradis::Plugins::Nikto`, see [nikto / export](./tools/tools.md#nikto)
 - metasploit-framework - `Dradis::Plugins::Metasploit`, see [metasploit
   framework / export database](./tools/tools.md#Export database)
 
-### Reset
+## Reset
 https://dradisframework.com/ce/documentation/reset.html
-#### Instance reset
+### Instance reset
 
     cd ~/dradis-ce/
     bundle exec thor dradis:reset
 
 
-## flameshot (screenshot)
-### Install
+# flameshot (screenshot)
+## Install
 
     apt install flameshot
-### Configuration
+## Configuration
 
 - Open flameshot from the menu
     - This should open the flameshot trail icon (a flame - top right of the screen)
@@ -168,7 +176,7 @@ https://dradisframework.com/ce/documentation/reset.html
 
 ![Flameshot configuration on kali](../assets/flameshot-configuration-kali.jpeg)
 
-### Keyboard shortcuts
+## Keyboard shortcuts
 In kali
 
 - Open the menu
