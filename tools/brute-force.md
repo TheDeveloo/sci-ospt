@@ -5,6 +5,29 @@ See in gathering/http
 - hydra
 - wfuzz (needs a lot of resources)
 
+# Image / Stenography
+
+    stegcracker doubletrouble.jpg /usr/share/wordlists/rockyou.txt
+<!-- example -->
+    ┌──(kali㉿kali)-[/kali-share/downloads]
+    └─$ stegcracker doubletrouble.jpg /usr/share/wordlists/rockyou.txt
+    StegCracker 2.1.0 - (https://github.com/Paradoxis/StegCracker)
+    Copyright (c) 2022 - Luke Paris (Paradoxis)
+    
+    StegCracker has been retired following the release of StegSeek, which
+    will blast through the rockyou.txt wordlist within 1.9 second as opposed
+    to StegCracker which takes ~5 hours.
+    
+    StegSeek can be found at: https://github.com/RickdeJager/stegseek
+    
+    Counting lines in wordlist..
+    Attacking file 'doubletrouble.jpg' with wordlist '/usr/share/wordlists/rockyou.txt'..
+    Successfully cracked file with password: 92camaros
+    Tried 134468 passwords
+    Your file has been written to: doubletrouble.jpg.out
+    92camaro
+
+
 # ZIP
 
 zip2john

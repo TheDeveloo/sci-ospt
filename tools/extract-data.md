@@ -9,3 +9,9 @@
     12            0xC             TIFF image data, big-endian, offset of first image directory: 8
     1429567       0x15D03F        Zip archive data, at least v2.0 to extract, compressed size: 53, uncompressed size: 92, name: user
     1429740       0x15D0EC        End of Zip archive, footer length: 22
+
+## Steghide
+
+    steghide --extract -sf doubletrouble.jpg
+    
+> If the steghide command requires a passphrase, use stegcracker (see brute-force)

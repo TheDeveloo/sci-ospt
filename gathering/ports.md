@@ -16,8 +16,8 @@
 
 https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks
 
-    nmap -sP 192.168.56.0/24
-    sudo netdiscover -i eth1
+    nmap -sP 19
+    sudo netdiscover -i eth1 -r 192.168.56.0/24
 <!---->
     ┌──(kali㉿kali)-[~]
     └─$ nmap -sP 192.168.56.0/24
